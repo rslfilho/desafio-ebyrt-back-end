@@ -4,8 +4,7 @@ module.exports = async (req, res, next) => {
   try {
     const { taskId } = req.params;
     const { status } = req.body;
-    // const { email } = req.user;
-    const email = 'email@email.com';
+    const { email } = req.user;
 
     const response = await taskService.updateStatus(email, taskId, { status });
 

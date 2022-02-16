@@ -3,8 +3,7 @@ const taskService = require('../../services/task');
 module.exports = async (req, res, next) => {
   try {
     const { description } = req.body;
-    // const { email } = req.user;
-    const email = 'email@email.com';
+    const { email } = req.user;
 
     const response = await taskService.create(email, { description });
 
