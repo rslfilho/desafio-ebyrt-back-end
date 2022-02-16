@@ -1,12 +1,17 @@
 const express = require('express');
 
 const taskController = require('../controllers/task');
-const { validation } = require('../middlewares');
+const { validation, auth } = require('../middlewares');
 
 const router = express.Router({ mergeParams: true });
 
-router.post('/', validation.description, taskController.create);
-router.patch('/description/:taskId', validation.description, taskController.updateDescription);
-router.patch('/status/:taskId', validation.status, taskController.updateStatus);
+router.post('/', auth, validation.description, taskController.create);
+router.patch('/status/:taskId', auth, validation.status, taskController.updateStatus);
+router.patch(
+  '/description/:taskId',
+  auth,
+  validation.description,
+  taskController.updateDescription,
+);
 
 module.exports = router;
