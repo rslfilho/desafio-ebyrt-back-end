@@ -5,6 +5,7 @@ const { validation } = require('../middlewares');
 
 const router = express.Router({ mergeParams: true });
 
-router.post('/', validation.task, taskController.create);
+router.post('/', validation.description, taskController.create);
+router.patch('/description/:taskId', validation.description, taskController.updateDescription);
 
 module.exports = router;
