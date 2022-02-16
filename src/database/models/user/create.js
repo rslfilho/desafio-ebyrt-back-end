@@ -8,6 +8,7 @@ module.exports = async ({ firstName, lastName, email, password }) => {
     lastName,
     email,
     password,
+    tasks: [],
   });
 
   return {
