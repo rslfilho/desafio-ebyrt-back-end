@@ -1,9 +1,9 @@
 const express = require('express');
+const cors = require('cors');
 
 const app = express();
 
-app.get('/', (_req, res) => {
-  res.status(200).json({ message: 'App running correctly' });
-});
+app.use(cors());
+app.use(express.json());
 
 module.exports = app;
