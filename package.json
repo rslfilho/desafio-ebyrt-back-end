@@ -11,8 +11,7 @@
     "lint": "eslint --no-inline-config --no-error-on-unmatched-pattern -c .eslintrc.json ."
   },
   "dependencies": {
-    "express": "^4.17.2",
-    "mongoose": "^6.2.1"
+    "express": "^4.17.2"
   },
   "devDependencies": {
     "dotenv": "^16.0.0",
