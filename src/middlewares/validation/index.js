@@ -1,7 +1,7 @@
 const user = require('./user');
-const task = require('./task');
+const description = require('./description');
 
 module.exports = {
   user,
-  task,
+  description,
 };
