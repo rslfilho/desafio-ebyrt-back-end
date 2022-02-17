@@ -9,8 +9,9 @@
 - [Desenvolvimento](#desenvolvimento)
 - [Arquitetura](#arquitetura)
 - [Outros Scripts da Aplicação](#outros-scripts-configurados-na-aplicação)
+- [Cobertura de Testes](#cobertura-de-testes)
 - [Deploy](#deploy)
-- [Actions](#actions)
+- [Contribuições](#Contribuições)
 - [Pontos de Melhoria](#pontos-de-melhoria)
 - [Contato](#contato)
 
@@ -148,6 +149,10 @@ A API está contida na pasta `/src` dentro da raiz do repositório, nela temos:
 * `yarn dev` ou `npm run dev` para rodar a aplicação com Nodemon e reinício automático na atualização de qualquer arquivo;
 * `yarn lint` ou `npm run lint` para rodar o ESLint;
 
+## Cobertura de testes
+
+A cobertura de testes está em 20.45%. Apenas com testes dos Models.
+
 ## Deploy
 
 Esta aplicação está rodando na plataforma do Heroku, usando a integração direta com o GitHub. O banco de dados está hospedado na Atlas.
@@ -156,15 +161,19 @@ Está acessível pelo endpoint `https://rslfilho-ebytr.herokuapp.com/`.
 
 É possível acessar a página Swagger da aplicação rodando e/ou testar a aplicação, ver detalhadamente os parâmetros esperados, as possíveis respostas e sua formatação [aqui](https://rslfilho-ebytr.herokuapp.com/swagger/).
 
-## Actions
+## Contribuições
 
-Na abertura e atualizações de PR's será executadas uma `action`. Ela rodará o ESLint para fazer a análise estática do código.
+Fique à vontade para abrir um PR para qualquer contribuição que desejar. 
 
-O arquivo com a `action` pode ser encontrado [aqui](https://github.com/rslfilho/desafio-ebytr-back-end/tree/main/.github/workflows).
+Na abertura e atualizações de PR's serão executadas duas `actions`. 
+A primeira rodará o ESLint para fazer a análise estática do código, já a segunda rodará os testes da aplicação.
+Aprovadas as duas `actions` e depois do CR de um dos proprietários do código, o PR poderá ser mergeado.
+
+O arquivo com as `actions` pode ser encontrado [aqui](https://github.com/rslfilho/desafio-ebytr-back-end/tree/main/.github/workflows).
 
 ## Pontos de melhoria
 
-- Adicionar testes (estou trabalhando nisso [aqui](https://github.com/rslfilho/desafio-ebytr-back-end/pull/8))
+- Adicionar mais testes, no momento só tem dos Models.
 - Fazer a aplicação Front-end
 
 ## Contato
