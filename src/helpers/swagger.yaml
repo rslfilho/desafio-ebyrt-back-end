@@ -1,0 +1,201 @@
+---
+swagger: '2.0'
+info:
+  title: API de lista de tarefas
+  version: 0.0.1
+  description: |
+    API para o desafio técnico da Ebytr
+    Aplicante: Roberval Filho
+    Desafio: Construção de uma aplicação de gerenciamento de tarefas para a equipe da Ebytr. Essa API REST é a aplicação backend desse sistema. Nela é possível criar usuários e criar, editar e listar tarefas.
+    
+    Email: rslfilho@gmail.com
+    Github: https://github.com/rslfilho
+    LinkedIn: https://www.linkedin.com/in/rslfilho/
+    Data: 17/02/2022
+securityDefinitions:
+  auth:
+    type: apiKey
+    in: header
+    name: Authorization
+basePath: /
+paths:
+  /login:
+    post:
+      tags:
+        - Login
+      summary: "Rota de login"
+      description: Recebe as informações de login a partir da corpo da requisição, confere a validade das mesmas e, em caso de informações válidas, retorna as informações do usuário e um token de autenticação
+      parameters:
+        - in: body
+          name: body
+          type: object
+          required: true
+          schema:
+            type: object
+            properties:
+              email: 
+                type: string
+              password:
+                type: string
+      produces:
+        - application/json
+      responses:
+        200:
+          description: Retorna as informações do usuário com um token de autenticação
+        400:
+          description: Informações enviadas mal formatadas, algum campo inválido
+        404:
+          description: Usuário não encontrado, email enviado não existe no banco de dados
+        500:
+          description: Erro interno do servidor
+  /users:
+    post:
+      tags:
+        - Users
+      summary: "Adiciona um novo usuário"
+      description: Recebe os dados do usuário no corpo da requisição, verifica se os dados são válidos e adiciona um novo usuário ao banco de dados. Todos os dados são strings e obrigatórios. O email precisa ser um email válido e a senha pecisa ter 06 caracteres no mínimo.
+      parameters:
+        - in: body
+          name: body
+          type: object
+          required: true
+          schema:
+            type: object
+            properties:
+              firstName: 
+                type: string
+              lastName:
+                type: string
+              email:
+                type: string
+              password:
+                type: string
+      produces:
+        - application/json
+      responses:
+        201:
+          description: Retorna o usuário criado
+        400:
+          description: Dados para cadastro incorretos (faltando ou erro de formatação)
+        409:
+          description: Usuário com o mesmo email já cadastrado no banco de dados
+        500:
+          description: Erro interno de servidor
+  /tasks:
+    post:
+      security:
+        - auth: []
+      tags:
+        - Tasks
+      summary: "Adiciona uma nova tarefa"
+      description: Verifica se o usuário está autenticado, recebe os dados da tarefa no corpo da requisição, verifica se os dados são válidos e adiciona uma nova tarefa ao banco de dados. Todos os dados são strings e obrigatórios.
+      parameters:
+        - in: body
+          name: body
+          type: object
+          required: true
+          schema:
+            type: object
+            properties:
+              description: 
+                type: string
+      produces:
+        - application/json
+      responses:
+        201:
+          description: Retorna a tarefa criada
+        400:
+          description: Dados para cadastro incorretos (faltando ou erro de formatação)
+        500:
+          description: Erro interno de servidor
+  /tasks/{userId}:
+    get:
+      security:
+        - auth: []
+      tags:
+        - Tasks
+      summary: "Lista todas as tarefas do usuário"
+      description: Verifica se o usuário está autenticado, recebe o id do usuário pela url e lista todas as tarefas do usuário
+      parameters:
+        - in: path
+          name: userId
+          type: string
+          required: true
+          description: Id do usuário
+      produces:
+        - application/json
+      responses:
+        200:
+          description: Retorna a tarefa criada
+        404:
+          description: Usuário não encontrado no banco de dados
+        500:
+          description: Erro interno de servidor
+  /tasks/status/{taskId}:
+    patch:
+      security:
+        - auth: []
+      tags:
+        - Tasks
+      summary: "Atualiza o status da tarefa"
+      description: "Verifica se o usuário está autenticado, recebe o id da tarefa pela url, recebe os dados do status no corpo da requisição, verifica se os dados são válidos e atualiza o status da tarefa no banco de dados. Todos os dados são strings e obrigatórios. O status pode ser um dos seguintes: 'active', 'inactive' e 'completed'. Se tentar atualizar para um status que é o status atual, receberá uma mensagem que nenhuma tarefa foi atualizada"
+      parameters:
+        - in: path
+          name: taskId
+          type: string
+          required: true
+          description: Id da tarefa
+        - in: body
+          name: body
+          type: object
+          required: true
+          schema:
+            type: object
+            properties:
+              status: 
+                type: string
+      produces:
+        - application/json
+      responses:
+        200:
+          description: Retorna mensagem dizendo que atualizou uma tarefa ou nenhuma tarefa
+        400:
+          description: Dados para atualização incorretos (faltando ou erro de formatação)
+        404:
+          description: Tarefa não encontrada no banco de dados
+        500:
+          description: Erro interno de servidor
+  /tasks/description/{taskId}:
+    patch:
+      security:
+        - auth: []
+      tags:
+        - Tasks
+      summary: "Atualiza a descrição da tarefa"
+      description: "Verifica se o usuário está autenticado, recebe o id da tarefa pela url, recebe os dados da descrição no corpo da requisição, verifica se os dados são válidos e atualiza a descrição da tarefa no banco de dados. Todos os dados são strings e obrigatórios."
+      parameters:
+        - in: path
+          name: taskId
+          type: string
+          required: true
+          description: Id da tarefa
+        - in: body
+          name: body
+          type: object
+          required: true
+          schema:
+            type: object
+            properties:
+              description: 
+                type: string
+      produces:
+        - application/json
+      responses:
+        200:
+          description: Retorna mensagem dizendo que atualizou uma tarefa
+        400:
+          description: Dados para atualização incorretos (faltando ou erro de formatação)
+        404:
+          description: Tarefa não encontrada no banco de dados
+        500:
+          description: Erro interno de servidor

@@ -16,6 +16,5 @@ module.exports = async ({ firstName, lastName, email, password }) => {
     firstName,
     lastName,
     email,
-    password,
   };
 };
