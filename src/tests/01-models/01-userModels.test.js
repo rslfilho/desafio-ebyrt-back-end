@@ -6,7 +6,7 @@ const mongoDBMock = require('../connectionMock');
 const userModel = require('../../database/models/user');
 const dbMock = require('../mocks/dbMock');
 
-describe('Testando os Models de Usuário', () => {
+describe.only('Testando os Models de Usuário', () => {
   let connectionMock;
   let usersCollection;
   let userId;
@@ -21,7 +21,7 @@ describe('Testando os Models de Usuário', () => {
     usersCollection = await db.collection('users');
 
     const { insertedId } = await usersCollection.insertOne(dbMock.user);
-    userId = ObjectId(insertedId);
+    userId = insertedId;
   });
 
   after(async () => {
@@ -37,7 +37,7 @@ describe('Testando os Models de Usuário', () => {
   
     it('retorna o usuário quando o email existe no banco de dados', async () => {
       const response = await userModel.findByEmail(dbMock.email);
-      expect(response).to.deep.equal({ _id: userId, ...dbMock.user });
+      expect(response).to.deep.equal({ _id: ObjectId(userId), ...dbMock.user });
     });
   });
 
