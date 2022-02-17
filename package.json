@@ -9,6 +9,7 @@
     "start": "node .",
     "dev": "nodemon .",
     "test": "NODE_ENV=test mocha src/tests/**/*$NAME*.test.js --exit",
+    "test:coverage": "nyc --all --reporter=lcov npm run test",
     "lint": "eslint --no-inline-config --no-error-on-unmatched-pattern -c .eslintrc.json ."
   },
   "dependencies": {
