@@ -164,7 +164,7 @@ O arquivo com a `action` pode ser encontrado [aqui](https://github.com/rslfilho/
 
 ## Pontos de melhoria
 
-- Adicionar testes (estou trabalhando nisso)
+- Adicionar testes (estou trabalhando nisso [aqui](https://github.com/rslfilho/desafio-ebytr-back-end/pull/8))
 - Fazer a aplicação Front-end
 
 ## Contato
