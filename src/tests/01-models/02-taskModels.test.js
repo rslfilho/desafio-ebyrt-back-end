@@ -6,7 +6,7 @@ const mongoDBMock = require('../connectionMock');
 const taskModel = require('../../database/models/task');
 const dbMock = require('../mocks/dbMock');
 
-describe.only('Testando os Models de tarefas', () => {
+describe('Testando os Models de tarefas', () => {
   let connectionMock;
   let usersCollection;
   let userId;
