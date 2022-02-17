@@ -6,7 +6,7 @@ const userModel = require('../../database/models/user');
 const { errors, jwt } = require('../../helpers');
 const modelMock = require('../mocks/modelMock');
 
-describe.only('Testando os services de usuário', () => {
+describe('Testando os services de usuário', () => {
   describe('o service "create"', () => {
     describe('quando já existe usuário cadastrado com o email', () => {
       before(() => {
