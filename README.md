@@ -147,6 +147,8 @@ A API está contida na pasta `/src` dentro da raiz do repositório, nela temos:
 ## Outros Scripts configurados na aplicação
 
 * `yarn dev` ou `npm run dev` para rodar a aplicação com Nodemon e reinício automático na atualização de qualquer arquivo;
+* `yarn test` ou `npm run test` para rodar todos os testes;
+* `yarn test:coverage` ou `npm run test:coverage` para rodar todos os testes e gerar o relatório de cobertura em html, acessível na pasta `/coverage/lcov-report/`;
 * `yarn lint` ou `npm run lint` para rodar o ESLint;
 
 ## Cobertura de testes
