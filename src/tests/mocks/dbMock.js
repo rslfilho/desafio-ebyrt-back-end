@@ -41,6 +41,30 @@ const tasksIds = [
   '620d6e1f357f00ae28e66da5',
 ];
 
+const tasks = [
+  {
+    "_id": {
+      "$oid": "620d5ce4006431ef60049daa"
+    },
+    "description": "Fazer almoço",
+    "status": "active"
+  },
+  {
+    "_id": {
+      "$oid": "620d5d82ee59fe8d563526e3"
+    },
+    "description": "Fazer jantar",
+    "status": "active"
+  },
+  {
+    "_id": {
+      "$oid": "620d6e1f357f00ae28e66da5"
+    },
+    "description": "Fazer café da manhã",
+    "status": "active"
+  },
+];
+
 const email = 'teste@email.com';
 
 module.exports = {
@@ -48,4 +72,5 @@ module.exports = {
   email,
   user,
   newUser,
+  tasks,
 };

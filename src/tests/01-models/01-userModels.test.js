@@ -6,7 +6,7 @@ const mongoDBMock = require('../connectionMock');
 const userModel = require('../../database/models/user');
 const dbMock = require('../mocks/dbMock');
 
-describe.only('Testando os Models de Usuário', () => {
+describe('Testando os Models de Usuário', () => {
   let connectionMock;
   let usersCollection;
   let userId;
