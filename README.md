@@ -11,7 +11,7 @@
 - [Outros Scripts da Aplicação](#outros-scripts-configurados-na-aplicação)
 - [Cobertura de Testes](#cobertura-de-testes)
 - [Deploy](#deploy)
-- [Contribuições](#Contribuições)
+- [Contribuições](#contribuições)
 - [Pontos de Melhoria](#pontos-de-melhoria)
 - [Contato](#contato)
 
@@ -175,7 +175,7 @@ O arquivo com as `actions` pode ser encontrado [aqui](https://github.com/rslfilh
 
 ## Pontos de melhoria
 
-- Adicionar mais testes, no momento só tem dos Models.
+- Adicionar mais testes, no momento só tem dos Models. (criando os testes de Services [aqui](https://github.com/rslfilho/desafio-ebytr-back-end/pull/9))
 - Fazer a aplicação Front-end
 
 ## Contato
